@@ -4,9 +4,10 @@ LABEL maintainer="Hugging Face"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ARG PYTORCH='2.8.0'
+# Keep in sync with `transformers-all-latest-gpu`, the image the rest of the test suite uses.
+ARG PYTORCH='2.13.0'
 # Example: `cu102`, `cu113`, etc.
-ARG CUDA='cu126'
+ARG CUDA='cu130'
 
 RUN apt -y update
 RUN apt install -y libaio-dev
