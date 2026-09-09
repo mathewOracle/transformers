@@ -235,8 +235,11 @@ class BatchEncoding(UserDict, Generic[_V]):
 
         self._encodings = encoding
 
+        # Determine number of sequences if not explicitly provided
         if n_sequences is None and encoding is not None and encoding:
-            n_sequences = encoding[0].n_sequences
+            # Ensure encoding list is not empty before accessing first element
+            if encoding:
+                n_sequences = encoding[0].n_sequences
 
         self._n_sequences = n_sequences
 
